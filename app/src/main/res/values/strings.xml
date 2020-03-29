@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">My Dinner</string>
+
+    <!-- Login/signup screen -->
+    <string name="password_input_hint">password</string>
+    <string name="username_input_hint">username</string>
+    <string name="log_in_button_text">Log in</string>
+    <string name="login_background_image_description">Login background</string>
+    <string name="register_view_text"><u>Don\'t already have account? Click here to create one!</u></string>
+    <string name="sign_up_text">Sign up!</string>
 </resources>
