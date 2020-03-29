@@ -329,4 +329,8 @@ fabric.properties
 
 .idea/sonarIssues.xml
 
+.idea/sonar/
+.idea/sonarlint/
+.idea/scannerwork/
+
 # End of https://www.gitignore.io/api/sonar,sonarqube
