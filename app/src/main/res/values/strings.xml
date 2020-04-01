@@ -8,4 +8,19 @@
     <string name="login_background_image_description">Login background</string>
     <string name="register_view_text"><u>Don\'t already have account? Click here to create one!</u></string>
     <string name="sign_up_text">Sign up!</string>
+
+    <!-- Recipe -->
+    <string name="recipe_name_label">Recipe name</string>
+    <string name="recipe_details_label">Recipe description</string>
+    <string name="recipe_create_button_text">Create Recipe</string>
+
+    <!-- Ingredient -->
+    <string name="ingredient_name_label">Ingredient name</string>
+    <string name="ingredient_name_input_hint">Ingredient</string>
+    <string name="ingredient_measure_label">Ingredient measure</string>
+    <string name="ingredient_amount_label">Ingredient amount</string>
+    <string name="ingredient_amount_input_default">0</string>
+    <string name="ingredient_add_button_text">Add ingredient</string>
+
+
 </resources>
