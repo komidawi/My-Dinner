@@ -25,6 +25,14 @@
             android:text="Start login activity" />
 
         <Button
+            android:id="@+id/start_signup_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startSignUpActivity"
+            android:text="Start signup activity" />
+
+        <Button
             android:id="@+id/start_home_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

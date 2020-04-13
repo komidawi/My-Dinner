@@ -2,14 +2,18 @@ package pl.edu.agh.iet.mydinner.login
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.extensions.jsonBody
+import com.github.kittinunf.result.Result
+import org.json.JSONObject
+import pl.edu.agh.iet.mydinner.R
+import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivitySignUpBinding
-import pl.edu.agh.iet.mydinner.login.credentials.SampleCredentialsStore
+import pl.edu.agh.iet.mydinner.util.Utils
 
+@Suppress("SameParameterValue")
 class SignUpActivity : AppCompatActivity() {
-
-    private val credentialsStore = SampleCredentialsStore.getInstance()
 
     private lateinit var binding: ActivitySignUpBinding
 
@@ -19,19 +23,34 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun onSignupButtonClicked(view: View?) {
-        val isSignupSuccessful = credentialsStore.addCredentials(
-                binding.usernameInput.text.toString(),
-                binding.passwordInput.text.toString()
-        )
-        handleSignupResult(isSignupSuccessful)
+    fun makeSignUpRequest(view: View) {
+        val createUserUrl = Env.SERVER_URL + "users/user"
+
+        val body = JSONObject()
+        body.put("username", binding.usernameInput.text.toString())
+        body.put("password", binding.passwordInput.text.toString())
+
+        fireSignUpRequest(createUserUrl, body)
     }
 
-    private fun handleSignupResult(isSuccessful: Boolean) {
-        if (isSuccessful) {
-            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-        }
+    private fun fireSignUpRequest(url: String, body: JSONObject) {
+        Fuel.post(url)
+                .jsonBody(body.toString())
+                .response { result ->
+                    when (result) {
+                        is Result.Success -> handleSignupSuccess()
+                        is Result.Failure -> handleSignupFailure(result.error.message)
+                    }
+                }
+    }
+
+    private fun handleSignupSuccess() {
+        val message = getString(R.string.signup_success_message)
+        Utils.showToast(message, this)
+    }
+
+    private fun handleSignupFailure(error: String?) {
+        val message = getString(R.string.signup_failure_message)
+        Utils.showToast("$message: $error", this)
     }
 }

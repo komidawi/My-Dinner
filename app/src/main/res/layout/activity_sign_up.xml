@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity">
+    tools:context=".login.SignUpActivity">
 
     <ImageView
         android:id="@+id/background_image"
@@ -21,9 +21,7 @@
         app:layout_constraintVertical_bias="0.494"
         app:srcCompat="@mipmap/login_screen_background" />
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
@@ -53,7 +51,7 @@
             android:id="@+id/signup_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onSignupButtonClicked"
+            android:onClick="makeSignUpRequest"
             android:text="@string/sign_up_text" />
     </LinearLayout>
 
