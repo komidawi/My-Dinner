@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".recipe.things.CreateRecipeActivity">
+    tools:context=".recipe.CreateRecipeActivity">
 
     <LinearLayout
         android:id="@+id/recipe_create_container"
@@ -50,7 +50,7 @@
             android:id="@+id/recipe_create_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="addRecipe"
+            android:onClick="onCreateRecipeButtonClick"
             android:text="@string/recipe_create_button_text" />
 
     </LinearLayout>
@@ -110,7 +110,7 @@
             android:id="@+id/ingredient_add_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="addIngredient"
+            android:onClick="onAddIngredientButtonClick"
             android:text="@string/ingredient_add_button_text" />
     </LinearLayout>
 

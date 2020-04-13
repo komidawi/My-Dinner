@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import pl.edu.agh.iet.mydinner.login.LoginActivity;
-import pl.edu.agh.iet.mydinner.recipe.things.CreateRecipeActivity;
+import pl.edu.agh.iet.mydinner.recipe.CreateRecipeActivity;
 import pl.edu.agh.iet.mydinner.login.SignUpActivity;
 
 /**
