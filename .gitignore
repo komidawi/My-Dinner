@@ -334,3 +334,6 @@ fabric.properties
 .idea/scannerwork/
 
 # End of https://www.gitignore.io/api/sonar,sonarqube
+
+# Config, environmental variables
+/app/src/main/java/pl/edu/agh/iet/mydinner/config/Env.kt
