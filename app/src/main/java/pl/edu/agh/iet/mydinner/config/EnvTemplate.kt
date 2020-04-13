@@ -10,6 +10,6 @@ class EnvTemplate {
     companion object {
         private const val SERVER_IP = "127.0.0.1"
         private const val SERVER_PORT = "2020"
-        const val SERVER_URL = "http://${SERVER_IP}:${SERVER_PORT}/"
+        const val SERVER_URL = "http://${SERVER_IP}:${SERVER_PORT}"
     }
 }
