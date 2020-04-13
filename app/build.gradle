@@ -65,6 +65,9 @@ dependencies {
     // HTTP Requests
     implementation 'com.github.kittinunf.fuel:fuel:2.2.1'
     implementation 'com.github.kittinunf.fuel:fuel-android:1.15.0'
+
+    // JSON Conversion
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 repositories {
     mavenCentral()
