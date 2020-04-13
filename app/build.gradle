@@ -42,21 +42,27 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "androidx.core:core-ktx:$version_ktx"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version_kotlin"
 
+    // UI and core things
     implementation "androidx.core:core:$version_core"
+    implementation "androidx.core:core-ktx:$version_ktx"
     implementation "androidx.appcompat:appcompat:$version_appcompat"
     implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
     implementation "com.google.android.material:material:$version_material"
+
+    // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$version_navigation"
 
+    // Testing
     testImplementation "junit:junit:$version_junit"
     androidTestImplementation "androidx.test.ext:junit:$version_ext_junit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"
 
-    implementation "com.android.volley:volley:$version_volley"
+    // HTTP Requests
+    implementation 'com.github.kittinunf.fuel:fuel:2.2.1'
+    implementation 'com.github.kittinunf.fuel:fuel-android:1.15.0'
 }
 repositories {
     mavenCentral()
