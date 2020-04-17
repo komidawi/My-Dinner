@@ -24,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     fun makeSignUpRequest(view: View) {
-        val createUserUrl = Env.SERVER_URL + "users/user"
+        val createUserUrl = Env.SERVER_URL + "/users/user"
 
         val body = JSONObject()
         body.put("username", binding.usernameInput.text.toString())
@@ -36,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
     private fun fireSignUpRequest(url: String, body: JSONObject) {
         Fuel.post(url)
                 .jsonBody(body.toString())
+                .timeout(5000)
                 .response { result ->
                     when (result) {
                         is Result.Success -> handleSignupSuccess()
@@ -45,12 +46,12 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun handleSignupSuccess() {
-        val message = getString(R.string.signup_success_message)
+        val message = getString(R.string.signup_message_success)
         Utils.showToast(message, this)
     }
 
     private fun handleSignupFailure(error: String?) {
-        val message = getString(R.string.signup_failure_message)
+        val message = getString(R.string.signup_message_failure)
         Utils.showToast("$message: $error", this)
     }
 }

@@ -48,7 +48,9 @@ dependencies {
     implementation "androidx.core:core:$version_core"
     implementation "androidx.core:core-ktx:$version_ktx"
     implementation "androidx.appcompat:appcompat:$version_appcompat"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation "com.google.android.material:material:$version_material"
 
     // Navigation
@@ -63,6 +65,9 @@ dependencies {
     // HTTP Requests
     implementation 'com.github.kittinunf.fuel:fuel:2.2.1'
     implementation 'com.github.kittinunf.fuel:fuel-android:1.15.0'
+
+    // JSON Conversion
+    implementation 'com.google.code.gson:gson:2.8.6'
 }
 repositories {
     mavenCentral()

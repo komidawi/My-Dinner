@@ -40,6 +40,14 @@
             android:onClick="startHomeActivity"
             android:text="Start home activity" />
 
+        <Button
+            android:id="@+id/start_add_recipe_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startAddRecipeActivity"
+            android:text="Start add recipe activity" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import pl.edu.agh.iet.mydinner.login.LoginActivity;
+import pl.edu.agh.iet.mydinner.recipe.CreateRecipeActivity;
 import pl.edu.agh.iet.mydinner.login.SignUpActivity;
 
 /**
@@ -34,5 +35,10 @@ public class DeveloperPanelActivity extends AppCompatActivity {
     public void startHomeActivity(View view) {
         Intent homeActivity = new Intent(this, SampleHomeActivity.class);
         startActivity(homeActivity);
+    }
+
+    public void startAddRecipeActivity(View view) {
+        Intent addRecipeActivity = new Intent(this, CreateRecipeActivity.class);
+        startActivity(addRecipeActivity);
     }
 }
