@@ -36,6 +36,7 @@ class SignUpActivity : AppCompatActivity() {
     private fun fireSignUpRequest(url: String, body: JSONObject) {
         Fuel.post(url)
                 .jsonBody(body.toString())
+                .timeout(5000)
                 .response { result ->
                     when (result) {
                         is Result.Success -> handleSignupSuccess()

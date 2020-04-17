@@ -16,7 +16,7 @@
     <string name="recipe_details_label">Recipe description</string>
     <string name="recipe_create_button_text">Create Recipe</string>
     <string name="recipe_create_message_success">Recipe created successfully</string>
-    <string name="recipe_create_message_failure">Recipe created successfully</string>
+    <string name="recipe_create_message_failure">An error occurred</string>
 
     <!-- Ingredient -->
     <string name="ingredient_name_label">Ingredient name</string>

@@ -67,6 +67,7 @@ class CreateRecipeActivity : AppCompatActivity() {
 
         Fuel.post(url)
                 .jsonBody(Gson().toJson(recipe))
+                .timeout(5000)
                 .response { result ->
                     when (result) {
                         is Result.Success -> handleCreateRecipeSuccess()
