@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.recipe
+package pl.edu.agh.iet.mydinner.ui.recipe.create
 
 import android.os.Bundle
 import android.view.View
@@ -29,7 +29,7 @@ class CreateRecipeActivity : AppCompatActivity() {
         binding = ActivityCreateRecipeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        ingredientAmountViewAdapter = RecipeAdapter(ingredientAmounts)
+        ingredientAmountViewAdapter = IngredientAdapter(ingredientAmounts)
         binding.apply {
             ingredientMeasureInput.adapter = ArrayAdapter(
                     baseContext, android.R.layout.simple_list_item_1, Measure.values())

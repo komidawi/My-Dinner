@@ -33,20 +33,28 @@
             android:text="Start signup activity" />
 
         <Button
-            android:id="@+id/start_home_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="startHomeActivity"
-            android:text="Start home activity" />
-
-        <Button
             android:id="@+id/start_add_recipe_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="startAddRecipeActivity"
             android:text="Start add recipe activity" />
+
+        <Button
+            android:id="@+id/start_recipe_list_activity_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startRecipeListActivity"
+            android:text="Start Recipe List activity" />
+
+        <Button
+            android:id="@+id/start_home_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startSampleHomeActivity"
+            android:text="Start home activity" />
 
     </LinearLayout>
 

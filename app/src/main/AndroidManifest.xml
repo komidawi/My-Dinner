@@ -19,11 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".recipe.CreateRecipeActivity" />
-        <activity android:name=".SampleHomeActivity" />
-        <activity android:name=".login.SignUpActivity" />
-        <activity android:name=".login.LoginActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".SampleHomeActivity" />
+        <activity android:name="pl.edu.agh.iet.mydinner.ui.login.SignUpActivity" />
+        <activity android:name="pl.edu.agh.iet.mydinner.ui.login.LoginActivity" />
+        <activity android:name="pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity" />
+        <activity android:name="pl.edu.agh.iet.mydinner.ui.recipe.create.CreateRecipeActivity" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.login
+package pl.edu.agh.iet.mydinner.ui.login
 
 import android.os.Bundle
 import android.view.View
