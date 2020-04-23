@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import pl.edu.agh.iet.mydinner.login.LoginActivity;
+import pl.edu.agh.iet.mydinner.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

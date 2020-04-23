@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.login;
+package pl.edu.agh.iet.mydinner.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import pl.edu.agh.iet.mydinner.SampleHomeActivity;
+import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity;
 import pl.edu.agh.iet.mydinner.databinding.ActivityLoginBinding;
-import pl.edu.agh.iet.mydinner.login.credentials.CredentialsStore;
-import pl.edu.agh.iet.mydinner.login.credentials.SampleCredentialsStore;
+import pl.edu.agh.iet.mydinner.ui.login.credentials.CredentialsStore;
+import pl.edu.agh.iet.mydinner.ui.login.credentials.SampleCredentialsStore;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void onLoginSuccess() {
-        Intent intent = new Intent(this, SampleHomeActivity.class);
+        Intent intent = new Intent(this, RecipeListActivity.class);
         startActivity(intent);
     }
 }

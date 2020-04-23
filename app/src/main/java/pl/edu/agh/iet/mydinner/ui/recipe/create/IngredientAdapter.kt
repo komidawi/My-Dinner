@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.recipe
+package pl.edu.agh.iet.mydinner.ui.recipe.create
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import pl.edu.agh.iet.mydinner.model.IngredientAmount
 
 class IngredientAmountViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
-class RecipeAdapter(ingredientAmounts: List<IngredientAmount>) : RecyclerView.Adapter<IngredientAmountViewHolder>() {
+class IngredientAdapter(ingredientAmounts: List<IngredientAmount>) : RecyclerView.Adapter<IngredientAmountViewHolder>() {
     var data = ingredientAmounts
         set(value) {
             field = value
@@ -18,7 +18,7 @@ class RecipeAdapter(ingredientAmounts: List<IngredientAmount>) : RecyclerView.Ad
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientAmountViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val view = layoutInflater.inflate(R.layout.text_item_view, parent, false) as TextView
+        val view = layoutInflater.inflate(R.layout.ingredient_item_view, parent, false) as TextView
         return IngredientAmountViewHolder(view)
     }
 

@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.login.credentials;
+package pl.edu.agh.iet.mydinner.ui.login.credentials;
 
 import java.util.HashMap;
 import java.util.Map;
