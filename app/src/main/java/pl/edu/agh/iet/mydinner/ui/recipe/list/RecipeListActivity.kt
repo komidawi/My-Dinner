@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivityRecipeListBinding
@@ -56,7 +58,9 @@ class RecipeListActivity : AppCompatActivity() {
 
     private fun parseJson(result: ByteArray): List<Recipe> {
         val jsonString = String(result)
-        val stringReader = StringReader(jsonString)
-        return Gson().fromJson(stringReader, Array<Recipe>::class.java).toList()
+        val jsonObject = JSONObject(jsonString)
+        val recipes = jsonObject.getJSONArray("recipes")
+
+        return Gson().fromJson(recipes.toString(), Array<Recipe>::class.java).toList()
     }
 }
