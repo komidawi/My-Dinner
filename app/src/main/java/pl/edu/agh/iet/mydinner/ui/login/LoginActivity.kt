@@ -3,10 +3,17 @@ package pl.edu.agh.iet.mydinner.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.github.kittinunf.fuel.Fuel
+import com.github.kittinunf.fuel.core.FuelError
+import com.github.kittinunf.fuel.core.extensions.jsonBody
+import com.github.kittinunf.result.Result
+import org.json.JSONObject
+import pl.edu.agh.iet.mydinner.R
+import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivityLoginBinding
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
+import pl.edu.agh.iet.mydinner.util.Utils
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,19 +31,62 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onLoginButtonClicked(view: View) {
-        onValidatedCredentials(true)
+        val credentials = prepareCredentials()
+        handleLoginRequest(credentials)
     }
 
-    private fun onValidatedCredentials(areCredentialsValid: Boolean) {
-        if (areCredentialsValid) {
-            onLoginSuccess()
-        } else {
-            Toast.makeText(this, "Incorrect username/password", Toast.LENGTH_SHORT).show()
+    private fun prepareCredentials(): JSONObject {
+        val credentials = JSONObject()
+        val username = binding.usernameInput.text.toString()
+        val password = binding.passwordInput.text.toString()
+
+        credentials.put("username", username)
+        credentials.put("password", password)
+
+        return credentials
+    }
+
+    private fun handleLoginRequest(credentials: JSONObject) {
+        Fuel.post("${Env.SERVER_URL}/users/user/login")
+                .jsonBody(credentials.toString())
+                .timeout(5000)
+                .response { result ->
+                    when (result) {
+                        is Result.Success -> handleLoginSuccess()
+                        is Result.Failure -> handleLoginFailure(result.error)
+                    }
+                }
+    }
+
+    private fun handleLoginSuccess() {
+        showLoginSuccessMessage()
+        startHomeActivity()
+    }
+
+    private fun showLoginSuccessMessage() {
+        val message = getString(R.string.log_in_success_message)
+        Utils.showToast(message, this)
+    }
+
+    private fun startHomeActivity() {
+        val intent = Intent(this, RecipeListActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun handleLoginFailure(error: FuelError) {
+        when (error.response.statusCode) {
+            409 -> show409ErrorMessage()
+            else -> showGenericErrorMessage(error)
         }
     }
 
-    private fun onLoginSuccess() {
-        val intent = Intent(this, RecipeListActivity::class.java)
-        startActivity(intent)
+    private fun show409ErrorMessage() {
+        val message = getString(R.string.log_in_failure_http_409)
+        Utils.showToast(message, this)
+    }
+
+    private fun showGenericErrorMessage(error: FuelError) {
+        val message = getString(R.string.request_error)
+        Utils.showToast("$message: ${error.message}", this)
     }
 }
