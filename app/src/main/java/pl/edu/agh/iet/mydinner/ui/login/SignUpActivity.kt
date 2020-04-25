@@ -23,34 +23,57 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    fun makeSignUpRequest(view: View) {
-        val createUserUrl = Env.SERVER_URL + "/users/user"
-
-        val body = JSONObject()
-        body.put("username", binding.usernameInput.text.toString())
-        body.put("password", binding.passwordInput.text.toString())
-
-        fireSignUpRequest(createUserUrl, body)
+    fun onSignUpButtonClick(view: View) {
+        if (passwordsAreEqual()) {
+            handleSignUpRequest()
+        } else {
+            showPasswordsAreNotEqualMessage()
+        }
     }
 
-    private fun fireSignUpRequest(url: String, body: JSONObject) {
-        Fuel.post(url)
+    private fun passwordsAreEqual(): Boolean {
+        val password = binding.passwordInput.text.toString()
+        val passwordRepeat = binding.passwordInputRepeat.text.toString()
+
+        return password == passwordRepeat
+    }
+
+    private fun showPasswordsAreNotEqualMessage() {
+        val message = getString(R.string.password_are_not_equal_message)
+        Utils.showToast(message, this)
+    }
+
+    private fun handleSignUpRequest() {
+        val credentials = prepareCredentials()
+        fireSignUpRequest(credentials)
+    }
+
+    private fun prepareCredentials(): JSONObject {
+        val credentials = JSONObject()
+        credentials.put("username", binding.usernameInput.text.toString())
+        credentials.put("password", binding.passwordInput.text.toString())
+
+        return credentials
+    }
+
+    private fun fireSignUpRequest(body: JSONObject) {
+        Fuel.post("${Env.SERVER_URL}/users/user")
                 .jsonBody(body.toString())
                 .timeout(5000)
                 .response { result ->
                     when (result) {
-                        is Result.Success -> handleSignupSuccess()
-                        is Result.Failure -> handleSignupFailure(result.error.message)
+                        is Result.Success -> showSignupSuccessMessage()
+                        is Result.Failure -> showSignupFailureMessage(result.error.message)
                     }
                 }
     }
 
-    private fun handleSignupSuccess() {
+    private fun showSignupSuccessMessage() {
         val message = getString(R.string.signup_message_success)
         Utils.showToast(message, this)
     }
 
-    private fun handleSignupFailure(error: String?) {
+    private fun showSignupFailureMessage(error: String?) {
         val message = getString(R.string.signup_message_failure)
         Utils.showToast("$message: $error", this)
     }

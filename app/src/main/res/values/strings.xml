@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">My Dinner</string>
 
+    <!-- Universal -->
+    <string name="request_error">An error occurred</string>
+
     <!-- Login/signup screen -->
-    <string name="password_input_hint">password</string>
     <string name="username_input_hint">username</string>
+    <string name="password_input_hint">password</string>
+    <string name="password_input_repeat_hint">repeat password</string>
+    <string name="password_are_not_equal_message">Error: passwords are not equal</string>
     <string name="log_in_button_text">Log in</string>
+    <string name="log_in_success_message">You have successfully logged in</string>
+    <string name="log_in_failure_http_409">User doesn’t exist or password is incorrect</string>
     <string name="login_background_image_description">Login background</string>
     <string name="register_view_text"><u>Don\'t already have account? Click here to create one!</u></string>
     <string name="sign_up_text">Sign up!</string>
