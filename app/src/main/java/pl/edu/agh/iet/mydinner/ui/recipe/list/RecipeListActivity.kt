@@ -3,8 +3,8 @@ package pl.edu.agh.iet.mydinner.ui.recipe.list
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
@@ -21,17 +21,35 @@ class RecipeListActivity : AppCompatActivity() {
     private var recipes = mutableListOf<Recipe>()
 
     private lateinit var binding: ActivityRecipeListBinding
-    private lateinit var recipeAdapter: RecyclerView.Adapter<RecipeViewHolder>
+    private lateinit var recipeAdapter: RecipeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecipeListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        recipeAdapter = RecipeAdapter(recipes)
-        binding.recipeListRecyclerView.adapter = recipeAdapter
+        initializeRecyclerView()
+        initializeRecipeSearch()
 
         makeGetRecipesRequest()
+    }
+
+    private fun initializeRecyclerView() {
+        recipeAdapter = RecipeAdapter(recipes)
+        binding.recipeListRecyclerView.adapter = recipeAdapter
+    }
+
+    private fun initializeRecipeSearch() {
+        binding.recipeSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                recipeAdapter.filter.filter(newText)
+                return false
+            }
+        })
     }
 
     fun startCreateRecipeActivity(view: View) {
