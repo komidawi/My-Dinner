@@ -1,19 +1,20 @@
 package pl.edu.agh.iet.mydinner.ui.recipe.list
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.Result
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivityRecipeListBinding
 import pl.edu.agh.iet.mydinner.model.Recipe
+import pl.edu.agh.iet.mydinner.ui.recipe.create.CreateRecipeActivity
 import pl.edu.agh.iet.mydinner.util.Utils
-import java.io.StringReader
 
 class RecipeListActivity : AppCompatActivity() {
 
@@ -31,6 +32,11 @@ class RecipeListActivity : AppCompatActivity() {
         binding.recipeListRecyclerView.adapter = recipeAdapter
 
         makeGetRecipesRequest()
+    }
+
+    fun startCreateRecipeActivity(view: View) {
+        val intent = Intent(this, CreateRecipeActivity::class.java)
+        startActivity(intent)
     }
 
     private fun makeGetRecipesRequest() {
