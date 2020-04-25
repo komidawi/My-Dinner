@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".SampleHomeActivity" />
         <activity android:name="pl.edu.agh.iet.mydinner.ui.login.SignUpActivity" />
         <activity android:name="pl.edu.agh.iet.mydinner.ui.login.LoginActivity" />
         <activity android:name="pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity" />
