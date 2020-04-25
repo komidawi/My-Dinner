@@ -1,5 +1,6 @@
 package pl.edu.agh.iet.mydinner.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -10,9 +11,9 @@ import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivitySignUpBinding
+import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
 import pl.edu.agh.iet.mydinner.util.Utils
 
-@Suppress("SameParameterValue")
 class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignUpBinding
@@ -62,15 +63,25 @@ class SignUpActivity : AppCompatActivity() {
                 .timeout(5000)
                 .response { result ->
                     when (result) {
-                        is Result.Success -> showSignupSuccessMessage()
+                        is Result.Success -> handleSignupSuccess()
                         is Result.Failure -> showSignupFailureMessage(result.error.message)
                     }
                 }
     }
 
+    private fun handleSignupSuccess() {
+        showSignupSuccessMessage()
+        startHomeActivity()
+    }
+
     private fun showSignupSuccessMessage() {
         val message = getString(R.string.signup_message_success)
         Utils.showToast(message, this)
+    }
+
+    private fun startHomeActivity() {
+        val intent = Intent(this, RecipeListActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showSignupFailureMessage(error: String?) {
