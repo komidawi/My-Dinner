@@ -42,9 +42,4 @@ public class DeveloperPanelActivity extends AppCompatActivity {
         Intent recipeListActivity = new Intent(this, RecipeListActivity.class);
         startActivity(recipeListActivity);
     }
-
-    public void startSampleHomeActivity(View view) {
-        Intent sampleHomeActivity = new Intent(this, SampleHomeActivity.class);
-        startActivity(sampleHomeActivity);
-    }
 }

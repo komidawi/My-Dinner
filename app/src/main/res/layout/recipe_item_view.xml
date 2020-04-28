@@ -4,9 +4,10 @@
     android:id="@+id/recipe_item_root_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="8dp"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    android:paddingBottom="16dp">
+    android:paddingBottom="8dp">
 
     <TextView
         android:id="@+id/recipe_item_title"
