@@ -12,6 +12,8 @@ import pl.edu.agh.iet.mydinner.model.Recipe
 import java.util.*
 
 class RecipeAdapter(val recipes: MutableList<Recipe>) : RecyclerView.Adapter<RecipeViewHolder>(), Filterable {
+
+    var sortingMode: SortingMode = SortingMode.NO_SORTING
     var data = mutableListOf<Recipe>()
         set(value) {
             field = value
@@ -20,6 +22,19 @@ class RecipeAdapter(val recipes: MutableList<Recipe>) : RecyclerView.Adapter<Rec
 
     init {
         data = recipes
+    }
+
+    fun reverseSorting() {
+        data.sortBy { it.name }
+
+        if (sortingMode == SortingMode.NAME_ASCENDING) {
+            data.reverse()
+            sortingMode = SortingMode.NAME_DESCENDING
+        } else {
+            sortingMode = SortingMode.NAME_ASCENDING
+        }
+
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
