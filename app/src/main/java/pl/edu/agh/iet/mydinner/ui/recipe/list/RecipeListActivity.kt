@@ -52,6 +52,10 @@ class RecipeListActivity : AppCompatActivity() {
         })
     }
 
+    fun onSortButtonClick(view: View) {
+        recipeAdapter.reverseSorting()
+    }
+
     fun startCreateRecipeActivity(view: View) {
         val intent = Intent(this, CreateRecipeActivity::class.java)
         startActivity(intent)
