@@ -13,6 +13,7 @@ import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivitySignUpBinding
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
 import pl.edu.agh.iet.mydinner.util.Utils
+import java.security.MessageDigest
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -50,11 +51,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun prepareCredentials(): JSONObject {
-        val credentials = JSONObject()
-        credentials.put("username", binding.usernameInput.text.toString())
-        credentials.put("password", binding.passwordInput.text.toString())
+        val username = binding.usernameInput.text.toString()
+        val password = binding.passwordInput.text.toString()
 
-        return credentials
+        return LoginUtils.prepareCredentials(username, password)
     }
 
     private fun fireSignUpRequest(body: JSONObject) {

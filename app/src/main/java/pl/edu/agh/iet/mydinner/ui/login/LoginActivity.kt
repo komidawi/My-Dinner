@@ -36,14 +36,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun prepareCredentials(): JSONObject {
-        val credentials = JSONObject()
         val username = binding.usernameInput.text.toString()
         val password = binding.passwordInput.text.toString()
 
-        credentials.put("username", username)
-        credentials.put("password", password)
-
-        return credentials
+        return LoginUtils.prepareCredentials(username, password)
     }
 
     private fun handleLoginRequest(credentials: JSONObject) {
