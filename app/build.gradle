@@ -47,9 +47,9 @@ dependencies {
     // UI and core things
     implementation "androidx.core:core:$version_core"
     implementation "androidx.core:core-ktx:$version_ktx"
-    implementation "androidx.appcompat:appcompat:$version_appcompat"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation "com.google.android.material:material:$version_material"
 
