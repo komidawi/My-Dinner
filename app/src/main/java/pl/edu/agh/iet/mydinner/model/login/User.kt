@@ -1,5 +1,6 @@
-package pl.edu.agh.iet.mydinner.model
+package pl.edu.agh.iet.mydinner.model.login
 
+import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import java.time.LocalDateTime
 
 data class User(

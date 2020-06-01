@@ -7,11 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.FuelError
 import com.github.kittinunf.fuel.core.extensions.jsonBody
+import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.result.Result
 import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivityLoginBinding
+import pl.edu.agh.iet.mydinner.login.LoginData
+import pl.edu.agh.iet.mydinner.model.login.LoginResponse
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
 import pl.edu.agh.iet.mydinner.util.Utils
 
@@ -46,15 +49,16 @@ class LoginActivity : AppCompatActivity() {
         Fuel.post("${Env.SERVER_URL}/users/user/login")
                 .jsonBody(credentials.toString())
                 .timeout(5000)
-                .response { result ->
+                .responseObject<LoginResponse> { _, _, result ->
                     when (result) {
-                        is Result.Success -> handleLoginSuccess()
+                        is Result.Success -> handleLoginSuccess(result.value)
                         is Result.Failure -> handleLoginFailure(result.error)
                     }
                 }
     }
 
-    private fun handleLoginSuccess() {
+    private fun handleLoginSuccess(response: LoginResponse) {
+        LoginData.loggedUserId = response.id
         showLoginSuccessMessage()
         startHomeActivity()
     }

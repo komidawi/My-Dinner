@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.gson.Gson
 import pl.edu.agh.iet.mydinner.databinding.ActivityDisplayRecipeBinding
-import pl.edu.agh.iet.mydinner.model.Recipe
+import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeViewHolder
 
 class DisplayRecipeActivity : AppCompatActivity() {

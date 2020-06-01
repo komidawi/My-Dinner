@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.recipe_item_view.view.*
 import pl.edu.agh.iet.mydinner.R
-import pl.edu.agh.iet.mydinner.model.Recipe
+import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import pl.edu.agh.iet.mydinner.ui.recipe.display.DisplayRecipeActivity
 
 class RecipeAdapter(val recipes: MutableList<Recipe>) : RecyclerView.Adapter<RecipeViewHolder>(), Filterable {

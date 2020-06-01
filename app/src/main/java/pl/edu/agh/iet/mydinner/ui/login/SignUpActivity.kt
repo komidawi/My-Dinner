@@ -6,14 +6,16 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.extensions.jsonBody
+import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.result.Result
 import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivitySignUpBinding
+import pl.edu.agh.iet.mydinner.login.LoginData
+import pl.edu.agh.iet.mydinner.model.login.LoginResponse
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
 import pl.edu.agh.iet.mydinner.util.Utils
-import java.security.MessageDigest
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -61,15 +63,16 @@ class SignUpActivity : AppCompatActivity() {
         Fuel.post("${Env.SERVER_URL}/users/user")
                 .jsonBody(body.toString())
                 .timeout(5000)
-                .response { result ->
+                .responseObject<LoginResponse> { _, _, result ->
                     when (result) {
-                        is Result.Success -> handleSignupSuccess()
+                        is Result.Success -> handleSignupSuccess(result.value)
                         is Result.Failure -> showSignupFailureMessage(result.error.message)
                     }
                 }
     }
 
-    private fun handleSignupSuccess() {
+    private fun handleSignupSuccess(response: LoginResponse) {
+        LoginData.loggedUserId = response.id
         showSignupSuccessMessage()
         startHomeActivity()
     }

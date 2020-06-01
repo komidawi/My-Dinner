@@ -12,7 +12,7 @@ import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivityRecipeListBinding
-import pl.edu.agh.iet.mydinner.model.Recipe
+import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import pl.edu.agh.iet.mydinner.ui.recipe.create.CreateRecipeActivity
 import pl.edu.agh.iet.mydinner.util.Utils
 

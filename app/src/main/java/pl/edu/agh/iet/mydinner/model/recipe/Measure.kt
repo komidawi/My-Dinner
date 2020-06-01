@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.model
+package pl.edu.agh.iet.mydinner.model.recipe
 
 enum class Measure {
     SZTUKA,

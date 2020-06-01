@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import pl.edu.agh.iet.mydinner.R
-import pl.edu.agh.iet.mydinner.model.IngredientAmount
+import pl.edu.agh.iet.mydinner.model.recipe.IngredientAmount
 
 class IngredientAmountViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 

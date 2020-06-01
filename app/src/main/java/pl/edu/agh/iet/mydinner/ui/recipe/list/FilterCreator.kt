@@ -1,7 +1,7 @@
 package pl.edu.agh.iet.mydinner.ui.recipe.list
 
 import android.widget.Filter
-import pl.edu.agh.iet.mydinner.model.Recipe
+import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import java.util.*
 
 class FilterCreator {

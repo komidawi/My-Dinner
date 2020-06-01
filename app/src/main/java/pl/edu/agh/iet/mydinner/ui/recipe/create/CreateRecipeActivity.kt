@@ -12,10 +12,11 @@ import com.google.gson.Gson
 import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.Env
 import pl.edu.agh.iet.mydinner.databinding.ActivityCreateRecipeBinding
-import pl.edu.agh.iet.mydinner.model.Ingredient
-import pl.edu.agh.iet.mydinner.model.IngredientAmount
-import pl.edu.agh.iet.mydinner.model.Measure
-import pl.edu.agh.iet.mydinner.model.Recipe
+import pl.edu.agh.iet.mydinner.login.LoginData
+import pl.edu.agh.iet.mydinner.model.recipe.Ingredient
+import pl.edu.agh.iet.mydinner.model.recipe.IngredientAmount
+import pl.edu.agh.iet.mydinner.model.recipe.Measure
+import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import pl.edu.agh.iet.mydinner.util.Utils
 
 class CreateRecipeActivity : AppCompatActivity() {
@@ -63,7 +64,7 @@ class CreateRecipeActivity : AppCompatActivity() {
     }
 
     private fun makeCreateRecipeRequest(recipe: Recipe) {
-        val url = "${Env.SERVER_URL}/users/user/recipe/0"
+        val url = "${Env.SERVER_URL}/users/user/recipe/${LoginData.loggedUserId}"
 
         Fuel.post(url)
                 .jsonBody(Gson().toJson(recipe))
