@@ -6,7 +6,7 @@ apply plugin: 'androidx.navigation.safeargs'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "pl.edu.agh.iet.mydinner"
         minSdkVersion 24
@@ -63,7 +63,8 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$version_espresso"
 
     // HTTP Requests
-    implementation 'com.github.kittinunf.fuel:fuel:2.2.1'
+    implementation 'com.github.kittinunf.fuel:fuel:2.2.2'
+    implementation 'com.github.kittinunf.fuel:fuel-gson:2.2.2'
     implementation 'com.github.kittinunf.fuel:fuel-android:1.15.0'
 
     // JSON Conversion
