@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.gson.Gson
 import pl.edu.agh.iet.mydinner.databinding.ActivityDisplayRecipeBinding
+import pl.edu.agh.iet.mydinner.model.recipe.IngredientAmount
 import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeViewHolder
 
@@ -27,7 +28,7 @@ class DisplayRecipeActivity : AppCompatActivity() {
             recipe.apply {
                 recipeDisplayName.text = name
                 recipeDisplayDetails.text = details
-                recipeDisplayIngredients.text = ingredientAmounts.toString()
+                recipeDisplayIngredients.text = ingredientAmounts.joinToString(separator = "\n")
             }
         }
     }
