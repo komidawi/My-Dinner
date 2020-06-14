@@ -13,6 +13,7 @@
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
         android:onClick="startCreateRecipeActivity"
+        app:backgroundTint="@color/cardview_dark_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
@@ -34,11 +35,12 @@
             android:focusable="false"
             android:iconifiedByDefault="false" />
 
-        <Button
+        <ImageButton
             android:id="@+id/recipe_list_sort_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onSortButtonClick" />
+            android:onClick="onSortButtonClick"
+            android:src="@android:drawable/ic_menu_sort_alphabetically" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

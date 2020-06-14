@@ -30,7 +30,10 @@ class RecipeListActivity : AppCompatActivity() {
 
         initializeRecyclerView()
         initializeRecipeSearch()
+    }
 
+    override fun onStart() {
+        super.onStart()
         makeGetRecipesRequest()
     }
 
@@ -75,6 +78,7 @@ class RecipeListActivity : AppCompatActivity() {
     private fun handleGetRecipesSuccess(result: ByteArray) {
         val myRecipes = parseJson(result)
 
+        recipes.clear()
         recipes.addAll(myRecipes)
         recipeAdapter.notifyDataSetChanged()
     }

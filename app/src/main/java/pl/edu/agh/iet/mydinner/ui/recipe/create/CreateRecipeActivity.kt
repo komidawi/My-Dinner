@@ -1,5 +1,6 @@
 package pl.edu.agh.iet.mydinner.ui.recipe.create
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -17,6 +18,7 @@ import pl.edu.agh.iet.mydinner.model.recipe.Ingredient
 import pl.edu.agh.iet.mydinner.model.recipe.IngredientAmount
 import pl.edu.agh.iet.mydinner.model.recipe.Measure
 import pl.edu.agh.iet.mydinner.model.recipe.Recipe
+import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
 import pl.edu.agh.iet.mydinner.util.Utils
 
 class CreateRecipeActivity : AppCompatActivity() {
@@ -80,6 +82,8 @@ class CreateRecipeActivity : AppCompatActivity() {
     private fun handleCreateRecipeSuccess() {
         val message = getString(R.string.recipe_create_message_success)
         Utils.showToast(message, this)
+        val goToRecipeListIntent = Intent(this, RecipeListActivity::class.java)
+        startActivity(goToRecipeListIntent)
     }
 
     private fun handleCreateRecipeFailure(error: String?) {

@@ -13,17 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.recipe.display.DisplayRecipeActivity"></activity>
-        <activity android:name=".DeveloperPanelActivity">
+        <activity android:name=".ui.recipe.display.DisplayRecipeActivity" />
+        <activity android:name=".DeveloperPanelActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.login.SignUpActivity" />
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ui.login.SignUpActivity" />
-        <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.recipe.list.RecipeListActivity" />
         <activity android:name=".ui.recipe.create.CreateRecipeActivity" />
     </application>
