@@ -10,7 +10,7 @@ import com.github.kittinunf.result.Result
 import com.google.gson.Gson
 import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
-import pl.edu.agh.iet.mydinner.config.Env
+import pl.edu.agh.iet.mydinner.config.NetworkingConfig
 import pl.edu.agh.iet.mydinner.databinding.ActivityRecipeListBinding
 import pl.edu.agh.iet.mydinner.model.recipe.Recipe
 import pl.edu.agh.iet.mydinner.ui.recipe.create.CreateRecipeActivity
@@ -65,8 +65,8 @@ class RecipeListActivity : AppCompatActivity() {
     }
 
     private fun makeGetRecipesRequest() {
-        Fuel.get("${Env.SERVER_URL}/recipes")
-                .timeout(5000)
+        Fuel.get(NetworkingConfig.RECIPE_ENDPOINT_URL)
+                .timeout(NetworkingConfig.TIMEOUT_IN_MILLIS)
                 .response { result ->
                     when (result) {
                         is Result.Success -> handleGetRecipesSuccess(result.get())

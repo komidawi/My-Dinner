@@ -11,7 +11,7 @@ import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.result.Result
 import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
-import pl.edu.agh.iet.mydinner.config.Env
+import pl.edu.agh.iet.mydinner.config.NetworkingConfig
 import pl.edu.agh.iet.mydinner.databinding.ActivityLoginBinding
 import pl.edu.agh.iet.mydinner.login.LoginData
 import pl.edu.agh.iet.mydinner.model.login.LoginResponse
@@ -46,9 +46,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleLoginRequest(credentials: JSONObject) {
-        Fuel.post("${Env.SERVER_URL}/users/user/login")
+        Fuel.post(NetworkingConfig.LOGIN_ENDPOINT_URL)
                 .jsonBody(credentials.toString())
-                .timeout(5000)
+                .timeout(NetworkingConfig.TIMEOUT_IN_MILLIS)
                 .responseObject<LoginResponse> { _, _, result ->
                     when (result) {
                         is Result.Success -> handleLoginSuccess(result.value)

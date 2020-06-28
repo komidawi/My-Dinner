@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.core.extensions.jsonBody
+import com.github.kittinunf.fuel.gson.jsonBody
 import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.result.Result
 import org.json.JSONObject
 import pl.edu.agh.iet.mydinner.R
-import pl.edu.agh.iet.mydinner.config.Env
+import pl.edu.agh.iet.mydinner.config.NetworkingConfig
 import pl.edu.agh.iet.mydinner.databinding.ActivitySignUpBinding
 import pl.edu.agh.iet.mydinner.login.LoginData
 import pl.edu.agh.iet.mydinner.model.login.LoginResponse
@@ -60,9 +60,9 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun fireSignUpRequest(body: JSONObject) {
-        Fuel.post("${Env.SERVER_URL}/users/user")
+        Fuel.post(NetworkingConfig.USER_ENDPOINT_URL)
                 .jsonBody(body.toString())
-                .timeout(5000)
+                .timeout(NetworkingConfig.TIMEOUT_IN_MILLIS)
                 .responseObject<LoginResponse> { _, _, result ->
                     when (result) {
                         is Result.Success -> handleSignupSuccess(result.value)

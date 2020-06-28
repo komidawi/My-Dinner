@@ -24,6 +24,7 @@
     <string name="recipe_create_button_text">Create Recipe</string>
     <string name="recipe_create_message_success">Recipe created successfully</string>
     <string name="recipe_create_message_failure">An error occurred</string>
+    <string name="ingredient_amount_is_empty_message">Please fill the amount</string>
 
     <!-- Recipe List View -->
     <string name="recipe_get_all_failure">An error occurred while fetching recipes</string>
