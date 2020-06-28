@@ -9,8 +9,10 @@ import pl.edu.agh.iet.mydinner.model.recipe.IngredientAmount
 
 class IngredientAmountViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
-class IngredientAdapter(ingredientAmounts: List<IngredientAmount>) : RecyclerView.Adapter<IngredientAmountViewHolder>() {
-    var data = ingredientAmounts
+class IngredientAdapter(ingredientAmounts: List<IngredientAmount>) :
+        RecyclerView.Adapter<IngredientAmountViewHolder>() {
+
+    private var data = ingredientAmounts
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -26,5 +28,5 @@ class IngredientAdapter(ingredientAmounts: List<IngredientAmount>) : RecyclerVie
         holder.textView.text = data[position].toString()
     }
 
-    override fun getItemCount() = data.size
+    override fun getItemCount(): Int = data.size
 }
