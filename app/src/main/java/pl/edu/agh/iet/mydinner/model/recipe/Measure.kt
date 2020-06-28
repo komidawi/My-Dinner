@@ -1,13 +1,13 @@
 package pl.edu.agh.iet.mydinner.model.recipe
 
 enum class Measure {
-    SZTUKA,
-    SZKLANKA,
+    PIECE,
+    GLASS,
     GRAM,
-    DEKAGRAM,
+    DECAGRAM,
     KILOGRAM,
-    ŁYŻKA,
-    ŁYCZECZKA,
-    MILILITR,
-    LITR
+    TABLESPOON,
+    TEASPOON,
+    MILLILITRE,
+    LITRE
 }
