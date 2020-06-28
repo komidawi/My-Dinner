@@ -15,8 +15,9 @@ import pl.edu.agh.iet.mydinner.ui.recipe.display.DisplayRecipeActivity
 
 class RecipeAdapter(val recipes: MutableList<Recipe>) : RecyclerView.Adapter<RecipeViewHolder>(), Filterable {
 
-    var sortingMode: SortingMode = SortingMode.NO_SORTING
-    var data = mutableListOf<Recipe>()
+    private var sortingMode: SortingMode = SortingMode.NO_SORTING
+
+    var data: MutableList<Recipe> = mutableListOf()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -29,11 +30,11 @@ class RecipeAdapter(val recipes: MutableList<Recipe>) : RecyclerView.Adapter<Rec
     fun reverseSorting() {
         data.sortBy { it.name }
 
-        if (sortingMode == SortingMode.NAME_ASCENDING) {
+        sortingMode = if (sortingMode == SortingMode.NAME_ASCENDING) {
             data.reverse()
-            sortingMode = SortingMode.NAME_DESCENDING
+            SortingMode.NAME_DESCENDING
         } else {
-            sortingMode = SortingMode.NAME_ASCENDING
+            SortingMode.NAME_ASCENDING
         }
 
         notifyDataSetChanged()
@@ -81,6 +82,6 @@ class RecipeViewHolder(private val root: View) : RecyclerView.ViewHolder(root) {
     }
 
     companion object {
-        const val RECIPE_EXTRA_ID = "THE_RECIPE"
+        const val RECIPE_EXTRA_ID: String = "THE_RECIPE"
     }
 }
