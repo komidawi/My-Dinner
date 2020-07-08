@@ -12,10 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"> <!-- INSECURE !!! FOR DEVELOPMENT PURPOSES ONLY !!!-->
         <activity android:name=".ui.recipe.display.DisplayRecipeActivity" />
         <activity android:name=".DeveloperPanelActivity" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".ui.login.SignUpActivity" />
         <activity android:name=".ui.login.LoginActivity">
             <intent-filter>

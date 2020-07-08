@@ -1,4 +1,4 @@
-package pl.edu.agh.iet.mydinner.ui.login
+package pl.edu.agh.iet.mydinner.login
 
 import org.json.JSONObject
 import java.security.MessageDigest

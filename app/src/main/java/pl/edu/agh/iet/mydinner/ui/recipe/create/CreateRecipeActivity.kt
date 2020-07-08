@@ -79,10 +79,10 @@ class CreateRecipeActivity : AppCompatActivity() {
         val details = binding.recipeDetailsInput.text.toString()
         val recipe = Recipe(name, details, ingredientAmounts)
 
-        makeCreateRecipeRequest(recipe)
+        handleCreateRecipeRequest(recipe)
     }
 
-    private fun makeCreateRecipeRequest(recipe: Recipe) {
+    private fun handleCreateRecipeRequest(recipe: Recipe) {
         Fuel.post(NetworkingConfig.CREATE_RECIPE_ENDPOINT_URL)
                 .jsonBody(Gson().toJson(recipe))
                 .timeout(NetworkingConfig.TIMEOUT_IN_MILLIS)

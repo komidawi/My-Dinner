@@ -2,6 +2,10 @@ package pl.edu.agh.iet.mydinner.login
 
 class LoginData {
     companion object {
-        var loggedUserId = -1
+
+        /**
+         * Just a crude way to provide log-in functionality.
+         */
+        var loggedUserId: Int = -1
     }
 }

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.github.kittinunf.fuel.Fuel
-import com.github.kittinunf.fuel.gson.jsonBody
+import com.github.kittinunf.fuel.core.extensions.jsonBody
 import com.github.kittinunf.fuel.gson.responseObject
 import com.github.kittinunf.result.Result
 import org.json.JSONObject
@@ -13,6 +13,7 @@ import pl.edu.agh.iet.mydinner.R
 import pl.edu.agh.iet.mydinner.config.NetworkingConfig
 import pl.edu.agh.iet.mydinner.databinding.ActivitySignUpBinding
 import pl.edu.agh.iet.mydinner.login.LoginData
+import pl.edu.agh.iet.mydinner.login.LoginUtils
 import pl.edu.agh.iet.mydinner.model.login.LoginResponse
 import pl.edu.agh.iet.mydinner.ui.recipe.list.RecipeListActivity
 import pl.edu.agh.iet.mydinner.util.Utils
@@ -49,7 +50,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun handleSignUpRequest() {
         val credentials = prepareCredentials()
-        fireSignUpRequest(credentials)
+        handleSignUpRequest(credentials)
     }
 
     private fun prepareCredentials(): JSONObject {
@@ -59,7 +60,7 @@ class SignUpActivity : AppCompatActivity() {
         return LoginUtils.prepareCredentials(username, password)
     }
 
-    private fun fireSignUpRequest(body: JSONObject) {
+    private fun handleSignUpRequest(body: JSONObject) {
         Fuel.post(NetworkingConfig.USER_ENDPOINT_URL)
                 .jsonBody(body.toString())
                 .timeout(NetworkingConfig.TIMEOUT_IN_MILLIS)

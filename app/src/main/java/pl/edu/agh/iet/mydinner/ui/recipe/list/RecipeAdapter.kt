@@ -52,9 +52,7 @@ class RecipeAdapter(val recipes: MutableList<Recipe>) : RecyclerView.Adapter<Rec
         holder.bind(recipe)
     }
 
-    override fun getFilter(): Filter {
-        return FilterCreator.createFilter(this)
-    }
+    override fun getFilter(): Filter = FilterCreator.createFilter(this)
 
     override fun getItemCount(): Int = data.size
 }

@@ -34,7 +34,7 @@ class RecipeListActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        makeGetRecipesRequest()
+        handleGetRecipesRequest()
     }
 
     private fun initializeRecyclerView() {
@@ -64,7 +64,7 @@ class RecipeListActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun makeGetRecipesRequest() {
+    private fun handleGetRecipesRequest() {
         Fuel.get(NetworkingConfig.RECIPE_ENDPOINT_URL)
                 .timeout(NetworkingConfig.TIMEOUT_IN_MILLIS)
                 .response { result ->

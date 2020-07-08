@@ -43,7 +43,7 @@ class FilterCreator {
                     return resultList
                 }
 
-                @Suppress("UNCHECKED_CAST")
+                @Suppress("UNCHECKED_CAST") // Suppressing due to language limitations
                 override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                     val resultData = results?.values as MutableList<Recipe>
                     recipeAdapter.data = resultData
