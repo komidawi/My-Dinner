@@ -1,5 +1,6 @@
 *.iml
 .gradle
+.idea
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -329,4 +330,11 @@ fabric.properties
 
 .idea/sonarIssues.xml
 
+.idea/sonar/
+.idea/sonarlint/
+.idea/scannerwork/
+
 # End of https://www.gitignore.io/api/sonar,sonarqube
+
+# Config, environmental variables
+/app/src/main/java/pl/edu/agh/iet/mydinner/config/Env.kt
