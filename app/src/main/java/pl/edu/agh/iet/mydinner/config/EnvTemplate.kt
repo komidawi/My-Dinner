@@ -8,7 +8,7 @@ package pl.edu.agh.iet.mydinner.config
  */
 class EnvTemplate {
     companion object {
-        private const val SERVER_IP = "127.0.0.1"
+        private const val SERVER_IP = "10.0.2.2"
         private const val SERVER_PORT = "2020"
         const val SERVER_URL = "http://${SERVER_IP}:${SERVER_PORT}"
     }
