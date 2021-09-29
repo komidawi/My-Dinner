@@ -4,7 +4,7 @@
 
 My Dinner is a recipe management Android app made during "Object-Oriented Technology 2" classes (AGH, VI summer semester 2019/20).
 
-## Functions
+## Features
 
 - User sign-up & login
 - Network error handling
